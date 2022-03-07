@@ -43,22 +43,30 @@ let datam = data.data
 console.log(datam);
 var parent1 = document.getElementById("displaym");
 datam.map((e)=>{
-    let div = document.createElement("div");
+     let div = document.createElement("div");
     var img = document.createElement("img");
     var iframe = document.createElement("iframe");
+    iframe.height = 0;
+    iframe.width = 0;
 
 let h3 = document.createElement("h3");
 h3.textContent = e.title;
 if(e.images !==undefined){
 if(e.images[0].type==="video/mp4"){
     iframe.src = e.images[0].link;
+    iframe.width = e.images[0].width;
+    iframe.height = e.images[0].height;
+    
     
 } else if(e.images[0].type === "image/jpeg" || e.images[0].type === "image/png"){
     img.src = e.images[0].link;
+    img.style.width = e.images[0].width;
+    img.style.height = e.images[0].height;
 }
 }
  else{
     img.src = e.link;
+   
 }
 
 let images = e.images;
